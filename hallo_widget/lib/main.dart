@@ -10,16 +10,70 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: "Hallo Widget",
-        theme: ThemeData(primarySwatch: Colors.blue),
-        home: Scaffold(
-          appBar: AppBar(
-            title: const Text("Putra Regian"),
+        title: "Hallo Widgets",
+        theme: ThemeData(primarySwatch: Colors.red),
+        home: const FirstScreen());
+  }
+}
+
+class WidgetDemo extends StatelessWidget {
+  const WidgetDemo({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Widget Demos'),
+      ),
+      body: Column(
+        children: [
+          Container(
+            height: 200,
+            margin: const EdgeInsets.all(16),
+            padding: const EdgeInsets.all(16),
+            color: Colors.blue,
+            child: const Center(
+              child: Text(
+                'Ini contoh penggunaan Container',
+                style: TextStyle(
+                  fontSize: 20.0,
+                  color: Colors.white,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ),
           ),
-          body: const Center(
-            child: Text("Hallo Eri"),
+          ElevatedButton(
+            onPressed: () {},
+            child: const Padding(
+              padding: EdgeInsets.all(16.0),
+              child: Text('Tombol Elevated'),
+            ),
           ),
-        ));
+          const SizedBox(
+            height: 10,
+          ),
+          const Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                Icons.star,
+                color: Colors.amber,
+              ),
+              Text('Rating: 4.6'),
+            ],
+          ),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Image.network(
+              'https://picsum.photos/id/7/300/200',
+              width: double.infinity,
+              height: 200,
+              fit: BoxFit.cover,
+            ),
+          )
+        ],
+      ),
+    );
   }
 }
 
@@ -30,7 +84,7 @@ class FirstScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Putra Regian"),
+        title: const Text("putra regian batistuta"),
         actions: <Widget>[
           IconButton(
               onPressed: () {},
@@ -40,14 +94,16 @@ class FirstScreen extends StatelessWidget {
               ))
         ],
         leading: IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              Icons.home,
-              color: Colors.white,
-            )),
+          //icon di kiri appbar
+          onPressed: () {},
+          icon: const Icon(
+            Icons.home,
+            color: Colors.white,
+          ),
+        ),
       ),
       body: const Center(
-        child: Text("Hallo Eri"),
+        child: Text("Hallo putra"),
       ),
     );
   }
